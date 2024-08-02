@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/reviewesFragment">
+
+    <fragment
+        android:id="@+id/criticsFragment"
+        android:name="com.example.ltchistory.ui.critics.CriticsFragment"
+        android:label="fragment_critics"
+        tools:layout="@layout/fragment_critics" >
+        <action
+            android:id="@+id/action_criticsFragment_to_criticDetailsFragment"
+            app:destination="@id/criticDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewesFragment"
+        android:name="com.example.ltchistory.ui.reviewes.ReviewesFragment"
+        android:label="fragment_reviewes"
+        tools:layout="@layout/fragment_reviewes" >
+        <action
+            android:id="@+id/action_reviewesFragment_to_criticsFragment"
+            app:destination="@id/criticsFragment"
+            app:enterAnim="@android:anim/slide_out_right"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/criticDetailsFragment"
+        android:name="com.example.ltchistory.ui.criticdetails.CriticDetailsFragment"
+        android:label="fragment_critic_details"
+        tools:layout="@layout/fragment_critic_details" />
+</navigation>

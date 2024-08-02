@@ -1,0 +1,11 @@
+<resources>
+    <style name="Widget.Theme.LTCHistory.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+    
+    <style name="CustomBottomNavigationText" parent="TextAppearance.AppCompat.Small">
+        <item name="android:textSize">18sp</item>
+    </style>
+    
+</resources>
