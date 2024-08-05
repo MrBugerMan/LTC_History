@@ -9,7 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.domain.models.Byline
 import com.example.ltchistory.databinding.FragmentReviewesBinding
+import com.example.ltchistory.ui.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +21,7 @@ class ReviewesFragment : Fragment() {
     private lateinit var reviewesAdapter: ReviewesAdapter
 
     private val viewModel: ReviewesViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -35,10 +38,20 @@ class ReviewesFragment : Fragment() {
 
         initAdapter()
 
-        viewModel.allReviewes.observe(viewLifecycleOwner) {
-            it.response?.let { it1 -> reviewesAdapter.updateList(it1.docs) }
-        }
+        viewModel.allReviewes.observe(viewLifecycleOwner) { movieReviewsAll ->
+            movieReviewsAll.response?.let { response ->
+                reviewesAdapter.updateList(response.docs)
 
+                val bylines = response.docs.map { it.byline }.filterNotNull()
+                sharedViewModel.setBylines(bylines as ArrayList<Byline>)
+            }
+        }
+        /*viewModel.allReviewes.observe(viewLifecycleOwner) {
+            it.response?.let { it1 -> reviewesAdapter.updateList(it1.docs) }
+        }*/
+
+
+        // попытка пагинации
         /*binding.recycleViewReviewes.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)

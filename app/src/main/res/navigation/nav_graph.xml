@@ -31,5 +31,11 @@
         android:id="@+id/criticDetailsFragment"
         android:name="com.example.ltchistory.ui.criticdetails.CriticDetailsFragment"
         android:label="fragment_critic_details"
-        tools:layout="@layout/fragment_critic_details" />
+        tools:layout="@layout/fragment_critic_details">
+        <!---
+        <argument
+            android:name="byline"
+            app:argType="com.example.ltchistory.Byline"
+            android:defaultValue="@null" /> -->
+    </fragment>
 </navigation>

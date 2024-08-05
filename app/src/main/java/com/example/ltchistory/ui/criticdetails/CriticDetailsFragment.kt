@@ -1,60 +1,64 @@
 package com.example.ltchistory.ui.criticdetails
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ltchistory.R
+import com.example.ltchistory.databinding.FragmentCriticDetailsBinding
+import com.example.ltchistory.ui.SharedViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CriticDetailsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class CriticDetailsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentCriticDetailsBinding
+    private lateinit var criticDetailsAdapter: CriticDetailsAdapter
+
+    private val viewModel: CriticDetailsViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_critic_details, container, false)
+    ): View {
+        binding = FragmentCriticDetailsBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CriticDetailsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CriticDetailsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewModel.criticDetails.observe(viewLifecycleOwner, Observer {
+            it.response?.let { it1 -> criticDetailsAdapter.updateList(it1.docs) }
+        })
+
+        initViews()
+        initAdapter()
     }
+
+    @SuppressLint("SetTextI18n")
+    private fun initViews() {
+        sharedViewModel.criticDetails.observe(viewLifecycleOwner) {
+            binding.nameCritic.text = "${it.person[0].firstname} ${it.person[0].lastname}"
+        }
+    }
+
+    private fun initAdapter() {
+        criticDetailsAdapter = CriticDetailsAdapter()
+        binding.recycleViewCriticReviewes.setHasFixedSize(true)
+        binding.recycleViewCriticReviewes.apply {
+            adapter = criticDetailsAdapter
+            layoutManager = LinearLayoutManager(this.context)
+        }
+    }
+
+
 }

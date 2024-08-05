@@ -16,7 +16,7 @@ class ReviewesAdapter: RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>(
 
     private var reviewesList: ArrayList<Docs> = arrayListOf()
 
-    inner class ReviewesViewHolder(val binding: ItemReviewesBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ReviewesViewHolder(private val binding: ItemReviewesBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(docs: Docs) {
             val urlPoster = docs.multimedia.firstOrNull { it.subtype == "verticalTwoByThree735" }?.url
             urlPoster?.let {
@@ -57,6 +57,8 @@ class ReviewesAdapter: RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>(
     }
 }
 
+
+// попытка пагинации
 /*class ReviewesAdapter: RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>() {
 
     private var reviewesList: ArrayList<Docs> = arrayListOf()

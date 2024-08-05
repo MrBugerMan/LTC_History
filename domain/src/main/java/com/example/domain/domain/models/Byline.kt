@@ -1,6 +1,7 @@
 package com.example.domain.domain.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Byline (
@@ -9,4 +10,4 @@ data class Byline (
     @SerializedName("person"       ) var person       : ArrayList<Person> = arrayListOf(),
     @SerializedName("organization" ) var organization : String?           = null
 
-)
+): Serializable
