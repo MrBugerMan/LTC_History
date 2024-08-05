@@ -1,13 +1,10 @@
-package com.example.ltchistory
+package com.example.ltchistory.ui
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.ltchistory.R
 import com.example.ltchistory.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,8 +24,5 @@ class MainActivity : AppCompatActivity() {
             navHostFragment.findNavController().navigate(it.itemId)
             true
         }
-
-
     }
-
 }

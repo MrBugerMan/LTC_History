@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.ltchistory.R
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ltchistory.databinding.FragmentReviewesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,6 +15,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class ReviewesFragment : Fragment() {
 
     private lateinit var binding: FragmentReviewesBinding
+    private lateinit var reviewesAdapter: ReviewesAdapter
+
+    private val viewModel: ReviewesViewModel by viewModels<ReviewesViewModel>() // viewModels()
+    /* // без hilt
+    private val viewModel: ReviewesViewModel by lazy {
+        ReviewesViewModel()
+    }*/
 
 
     override fun onCreateView(
@@ -24,15 +33,24 @@ class ReviewesFragment : Fragment() {
         return binding.root
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initUi()
+        initAdapter()
+
+        viewModel.allReviewes.observe(viewLifecycleOwner) {
+            it.response?.let { it1 -> reviewesAdapter.updateList(it1.docs) }
+        }
 
     }
 
-    private fun initUi() {
-        TODO()
-    }*/
+    private fun initAdapter() {
+        reviewesAdapter = ReviewesAdapter()
+        binding.recycleViewReviewes.setHasFixedSize(true)
+        binding.recycleViewReviewes.apply {
+            adapter = reviewesAdapter
+            layoutManager = LinearLayoutManager(this.context)
+        }
+    }
 
 }

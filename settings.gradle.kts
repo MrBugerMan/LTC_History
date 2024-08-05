@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "LTC History"
 include(":app")
+include(":data")
+include(":domain")

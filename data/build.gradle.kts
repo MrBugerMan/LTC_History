@@ -1,20 +1,17 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
 }
 
 android {
-    namespace = "com.example.ltchistory"
+    namespace = "com.example.data"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.ltchistory"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -33,34 +30,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures {
-        viewBinding = true
-    }
-
-    // вроде это нужно для избавления от конфликта зависимостей
-    packagingOptions {
-        pickFirst("META-INF/gradle/incremental.annotation.processors")
-    }
-
 }
 
 dependencies {
-    // My dependencies
+
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.glide)
     implementation(libs.bundles.coroutines)
     implementation(libs.bundles.hilt)
-    implementation(libs.splash)
-    implementation(libs.navigation.fragment.ktx)
 
     implementation (project(":domain"))
-    implementation (project(":data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

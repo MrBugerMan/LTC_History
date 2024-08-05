@@ -25,6 +25,7 @@ coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 
 hilt = { group = "com.google.dagger", name = "hilt-android", version = "2.41" }
 hilt-compiler = {group = "com.google.dagger", name = "hilt-compiler", version = "2.41"}
+hilt-inject = { group = "javax.inject", name = "javax.inject", version = "1" }
 
 splash = { group = "androidx.core", name = "core-splashscreen", version = "1.0.1" }
 
@@ -41,9 +42,10 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 
 [bundles]
 retrofit = ["retrofit", "retrofit-converter-gson", "retrofit-adapter"]
 glide = ["glide"]
 coroutines = ["coroutines-android", "coroutines-core"]
-hilt = ["hilt", "hilt-compiler"]
+hilt = ["hilt", "hilt-compiler", "hilt-inject"]

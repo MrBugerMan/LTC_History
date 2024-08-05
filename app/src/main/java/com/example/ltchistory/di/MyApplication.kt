@@ -1,4 +1,4 @@
-package com.example.ltchistory
+package com.example.ltchistory.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

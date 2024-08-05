@@ -1,0 +1,57 @@
+package com.example.data.data.api.nytimes
+
+import com.example.domain.domain.models.MovieReviewsAll
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
+import retrofit2.http.Query
+import javax.inject.Singleton
+
+
+/*private val retrofit = Retrofit.Builder()
+    .baseUrl(MovieReviewsAPItools.BASE_URL)
+    .addConverterFactory(GsonConverterFactory.create())
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
+    .build()*/
+
+interface MovieReviewsAPI {
+
+    @GET("svc/search/v2/articlesearch.json")
+    suspend fun getAllReviews(
+        @Query("fq") filterQuery: String = "section_name:\"Movies\" AND type_of_material:\"Review\"",
+        @Query("sort") sort: String = "newest",
+        @Query("page") page: Int = 0,
+        @Query("api-key") apiKey: String = MovieReviewsAPItools.API_KEY
+    ): MovieReviewsAll
+
+}
+
+@Module
+@InstallIn(SingletonComponent::class)
+object MovieReviewsService {
+
+    @Provides
+    @Singleton
+    fun provideMovieReviewsAPI(): MovieReviewsAPI {
+        return Retrofit.Builder()
+            .baseUrl(MovieReviewsAPItools.BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .build()
+            .create(MovieReviewsAPI::class.java)
+    }
+
+}
+
+/*// no hilt
+object MovieReviewsService {
+    val retrofitService: MovieReviewsAPI by lazy { retrofit.create(MovieReviewsAPI::class.java) }
+}*/
+
+
+
