@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ltchistory.databinding.FragmentReviewesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,11 +18,7 @@ class ReviewesFragment : Fragment() {
     private lateinit var binding: FragmentReviewesBinding
     private lateinit var reviewesAdapter: ReviewesAdapter
 
-    private val viewModel: ReviewesViewModel by viewModels<ReviewesViewModel>() // viewModels()
-    /* // без hilt
-    private val viewModel: ReviewesViewModel by lazy {
-        ReviewesViewModel()
-    }*/
+    private val viewModel: ReviewesViewModel by viewModels()
 
 
     override fun onCreateView(
@@ -41,6 +38,18 @@ class ReviewesFragment : Fragment() {
         viewModel.allReviewes.observe(viewLifecycleOwner) {
             it.response?.let { it1 -> reviewesAdapter.updateList(it1.docs) }
         }
+
+        /*binding.recycleViewReviewes.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (!recyclerView.canScrollVertically(1)) {
+                    viewModel.loadNextPage()
+                } else if (!recyclerView.canScrollVertically(-1)) {
+                    viewModel.loadPreviousPage()
+                }
+            }
+        })*/
+
 
     }
 

@@ -13,11 +13,6 @@ import retrofit2.http.Query
 import javax.inject.Singleton
 
 
-/*private val retrofit = Retrofit.Builder()
-    .baseUrl(MovieReviewsAPItools.BASE_URL)
-    .addConverterFactory(GsonConverterFactory.create())
-    .addCallAdapterFactory(CoroutineCallAdapterFactory())
-    .build()*/
 
 interface MovieReviewsAPI {
 
@@ -47,6 +42,13 @@ object MovieReviewsService {
     }
 
 }
+
+/*private val retrofit = Retrofit.Builder()
+    .baseUrl(MovieReviewsAPItools.BASE_URL)
+    .addConverterFactory(GsonConverterFactory.create())
+    .addCallAdapterFactory(CoroutineCallAdapterFactory())
+    .build()*/
+
 
 /*// no hilt
 object MovieReviewsService {

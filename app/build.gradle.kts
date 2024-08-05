@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.daggerHilt)
+    alias(libs.plugins.kapt)
 }
 
 android {
@@ -49,9 +51,13 @@ dependencies {
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.glide)
     implementation(libs.bundles.coroutines)
-    implementation(libs.bundles.hilt)
     implementation(libs.splash)
     implementation(libs.navigation.fragment.ktx)
+
+
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.compiler)
+
 
     implementation (project(":domain"))
     implementation (project(":data"))

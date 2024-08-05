@@ -18,32 +18,3 @@ interface DataModule {
     fun provideRepositoryAPI(repositoryAPI: RepositoryAPI): Repository
 }
 
-/*
-@Module
-@InstallIn(SingletonComponent::class)
-object DataModule {
-
-    */
-/*@Binds
-    @Singleton
-    fun bindRepositoryAPI(implementation: RepositoryAPI): Repository {
-        return implementation
-    }*//*
-
-
-    @Provides
-    @Singleton
-    fun provideRepositoryAPI(movieReviewsApi: MovieReviewsAPI): RepositoryAPI {
-        return RepositoryAPI(movieReviewsApi)
-    }
-
-    */
-/*@Provides
-    @Singleton
-    fun provideRepository(repositoryAPI: RepositoryAPI): Repository {
-        return repositoryAPI
-    }*//*
-
-
-}
-*/

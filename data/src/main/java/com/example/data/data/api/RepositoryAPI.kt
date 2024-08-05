@@ -6,6 +6,17 @@ import com.example.domain.domain.models.MovieReviewsAll
 
 import javax.inject.Inject
 
+
+/*class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReviewsAPI) : Repository {
+
+    override suspend fun getReviewes(page: Int): MovieReviewsAll {
+        return try {
+            movieReviewsAPI.getAllReviews(page = page)
+        } catch (e: Exception) {
+            MovieReviewsAll()
+        }
+    }
+}*/
 class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReviewsAPI) : Repository {
 
     override suspend fun getReviewes(): MovieReviewsAll {
