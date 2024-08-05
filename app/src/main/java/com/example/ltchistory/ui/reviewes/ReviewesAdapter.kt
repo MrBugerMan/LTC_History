@@ -12,13 +12,15 @@ import com.example.domain.domain.models.Docs
 import com.example.ltchistory.R
 import com.example.ltchistory.databinding.ItemReviewesBinding
 
-class ReviewesAdapter: RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>() {
+class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>() {
 
     private var reviewesList: ArrayList<Docs> = arrayListOf()
 
-    inner class ReviewesViewHolder(private val binding: ItemReviewesBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ReviewesViewHolder(private val binding: ItemReviewesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(docs: Docs) {
-            val urlPoster = docs.multimedia.firstOrNull { it.subtype == "verticalTwoByThree735" }?.url
+            val urlPoster =
+                docs.multimedia.firstOrNull { it.subtype == "verticalTwoByThree735" }?.url
             urlPoster?.let {
                 Glide.with(itemView).load("https://static01.nyt.com/$it").into(binding.poster)
             }

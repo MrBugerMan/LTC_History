@@ -46,10 +46,6 @@ class ReviewesFragment : Fragment() {
                 sharedViewModel.setBylines(bylines as ArrayList<Byline>)
             }
         }
-        /*viewModel.allReviewes.observe(viewLifecycleOwner) {
-            it.response?.let { it1 -> reviewesAdapter.updateList(it1.docs) }
-        }*/
-
 
         // попытка пагинации
         /*binding.recycleViewReviewes.addOnScrollListener(object : RecyclerView.OnScrollListener() {

@@ -34,7 +34,6 @@ class CriticsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentCriticsBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -48,7 +47,7 @@ class CriticsFragment : Fragment() {
             criticsAdapter.updateList(bylines)
         }
 
-        criticsAdapter.setOnClickListener(object: CriticsAdapter.OnClickListener {
+        criticsAdapter.setOnClickListener(object : CriticsAdapter.OnClickListener {
             override fun onClick(position: Int, model: Byline) {
                 Log.d("yes click", "position = $position, model = $model")
                 sharedViewModel.setCriticDetails(model)

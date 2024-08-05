@@ -10,12 +10,13 @@ import com.example.ltchistory.databinding.FragmentCriticsBinding
 import com.example.ltchistory.databinding.FragmentReviewesBinding
 import com.example.ltchistory.databinding.ItemCriticBinding
 
-class CriticsAdapter: RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() {
+class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() {
 
     private var criticsList: ArrayList<Byline> = arrayListOf()
     private var onClickListener: OnClickListener? = null
 
-    inner class CriticsViewHolder(private val binding: ItemCriticBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class CriticsViewHolder(private val binding: ItemCriticBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
         fun bind(byline: Byline) {

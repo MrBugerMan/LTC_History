@@ -9,7 +9,7 @@
         android:id="@+id/criticsFragment"
         android:name="com.example.ltchistory.ui.critics.CriticsFragment"
         android:label="fragment_critics"
-        tools:layout="@layout/fragment_critics" >
+        tools:layout="@layout/fragment_critics">
         <action
             android:id="@+id/action_criticsFragment_to_criticDetailsFragment"
             app:destination="@id/criticDetailsFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/reviewesFragment"
         android:name="com.example.ltchistory.ui.reviewes.ReviewesFragment"
         android:label="fragment_reviewes"
-        tools:layout="@layout/fragment_reviewes" >
+        tools:layout="@layout/fragment_reviewes">
         <action
             android:id="@+id/action_reviewesFragment_to_criticsFragment"
             app:destination="@id/criticsFragment"

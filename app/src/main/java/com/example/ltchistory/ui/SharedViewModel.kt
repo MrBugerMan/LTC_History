@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class SharedViewModel @Inject constructor(): ViewModel() {
+class SharedViewModel @Inject constructor() : ViewModel() {
 
     private val _infoForCritics = MutableLiveData<ArrayList<Byline>>()
     val infoForCritics: LiveData<ArrayList<Byline>> get() = _infoForCritics

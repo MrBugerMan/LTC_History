@@ -6,6 +6,6 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class CriticsViewModel @Inject constructor(): ViewModel() {
+class CriticsViewModel @Inject constructor() : ViewModel() {
 
 }

@@ -8,7 +8,6 @@ import com.example.domain.domain.models.MovieReviewsAll
 import javax.inject.Inject
 
 
-
 class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReviewsAPI) : Repository {
 
     override suspend fun getReviewesAll(): MovieReviewsAll {
@@ -23,7 +22,7 @@ class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReview
     override suspend fun getReviewesByCritic(filterQuery: String): MovieReviewsAll {
         return try {
             movieReviewsAPI.getReviewsByCritic(filterQuery = filterQuery)
-        } catch(e: Exception) {
+        } catch (e: Exception) {
             Log.d("RepositoryAPI ERROR", e.toString())
             MovieReviewsAll()
         }

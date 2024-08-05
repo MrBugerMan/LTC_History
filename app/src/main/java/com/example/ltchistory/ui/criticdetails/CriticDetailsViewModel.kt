@@ -13,16 +13,17 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class CriticDetailsViewModel @Inject constructor(private val repository: Repository): ViewModel() {
+class CriticDetailsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
     private val _criticDetails = MutableLiveData<MovieReviewsAll>()
     val criticDetails: LiveData<MovieReviewsAll> get() = _criticDetails
 
     init {
         viewModelScope.launch {
-            repository.getReviewesByCritic("section_name:\"Movies\" AND type_of_material:\"Review\" AND byline:\"${CriticName.criticName}\"").let {
-                _criticDetails.value = it
-            }
+            repository.getReviewesByCritic("section_name:\"Movies\" AND type_of_material:\"Review\" AND byline:\"${CriticName.criticName}\"")
+                .let {
+                    _criticDetails.value = it
+                }
         }
     }
 

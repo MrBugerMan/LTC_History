@@ -10,9 +10,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
-
 @HiltViewModel
-class ReviewesViewModel @Inject constructor(private val repository: Repository): ViewModel() { // private val repository: RepositoryAPI
+class ReviewesViewModel @Inject constructor(private val repository: Repository) :
+    ViewModel() {
 
     private val _allReviewes = MutableLiveData<MovieReviewsAll>()
     val allReviewes = _allReviewes
