@@ -3,7 +3,7 @@ package com.example.ltchistory.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.data.data.api.CriticName
+import com.example.data.services.CriticName
 import com.example.domain.domain.models.Byline
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

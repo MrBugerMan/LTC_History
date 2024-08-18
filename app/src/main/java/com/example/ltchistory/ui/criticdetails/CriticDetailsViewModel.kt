@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.data.api.CriticName
+import com.example.data.services.CriticName
 import com.example.domain.domain.Repository
 import com.example.domain.domain.models.MovieReviewsAll
 import dagger.hilt.android.lifecycle.HiltViewModel

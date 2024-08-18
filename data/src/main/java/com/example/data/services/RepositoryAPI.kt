@@ -1,9 +1,10 @@
-package com.example.data.data.api
+package com.example.data.services
 
 import android.util.Log
-import com.example.data.data.api.nytimes.MovieReviewsAPI
+import com.example.data.services.nytimes.MovieReviewsAPI
 import com.example.domain.domain.Repository
 import com.example.domain.domain.models.MovieReviewsAll
+import com.example.domain.domain.models.Response
 
 import javax.inject.Inject
 
@@ -15,7 +16,7 @@ class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReview
             movieReviewsAPI.getAllReviews()
         } catch (e: Exception) {
             Log.d("RepositoryAPI ERROR", e.toString())
-            MovieReviewsAll()
+            MovieReviewsAll(page = -1, response = Response())
         }
     }
 
@@ -24,19 +25,9 @@ class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReview
             movieReviewsAPI.getReviewsByCritic(filterQuery = filterQuery)
         } catch (e: Exception) {
             Log.d("RepositoryAPI ERROR", e.toString())
-            MovieReviewsAll()
+            MovieReviewsAll(page = -1, response = Response())
         }
     }
 }
 
-// попытка пагинации
-/*class RepositoryAPI @Inject constructor(private val movieReviewsAPI: MovieReviewsAPI) : Repository {
 
-    override suspend fun getReviewes(page: Int): MovieReviewsAll {
-        return try {
-            movieReviewsAPI.getAllReviews(page = page)
-        } catch (e: Exception) {
-            MovieReviewsAll()
-        }
-    }
-}*/

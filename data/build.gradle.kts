@@ -43,6 +43,9 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 
+    kapt(libs.room.compiler)
+    implementation(libs.bundles.room)
+
     implementation (project(":domain"))
 
     implementation(libs.androidx.core.ktx)

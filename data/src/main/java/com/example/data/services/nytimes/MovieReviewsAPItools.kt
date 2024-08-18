@@ -1,4 +1,4 @@
-package com.example.data.data.api.nytimes
+package com.example.data.services.nytimes
 
 object MovieReviewsAPItools {
 

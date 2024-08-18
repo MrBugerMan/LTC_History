@@ -1,4 +1,4 @@
-package com.example.data.data.api.nytimes
+package com.example.data.services.nytimes
 
 import com.example.domain.domain.models.MovieReviewsAll
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -35,9 +35,12 @@ interface MovieReviewsAPI {
 
 }
 
+
+
+
 @Module
 @InstallIn(SingletonComponent::class)
-object MovieReviewsService {
+object RetrofitModule {
 
     @Provides
     @Singleton
@@ -60,7 +63,7 @@ object MovieReviewsService {
 
 
 /*// no hilt
-object MovieReviewsService {
+object RetrofitModule {
     val retrofitService: MovieReviewsAPI by lazy { retrofit.create(MovieReviewsAPI::class.java) }
 }*/
 
