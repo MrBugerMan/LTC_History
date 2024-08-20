@@ -8,7 +8,9 @@ import com.example.data.services.CriticName
 import com.example.data.Repository
 import com.example.data.services.nytimes.models.MovieReviewsAll
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -19,11 +21,11 @@ class CriticDetailsViewModel @Inject constructor(private val repository: Reposit
     val criticDetails: LiveData<MovieReviewsAll> get() = _criticDetails
 
     init {
-        viewModelScope.launch {
-            repository.getReviewesByCritic("section_name:\"Movies\" AND type_of_material:\"Review\" AND byline:\"${CriticName.criticName}\"")
-                .let {
-                    _criticDetails.value = it
-                }
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.getReviewesByCritic("section_name:\"Movies\" AND type_of_material:\"Review\" AND byline:\"${CriticName.criticName}\"")
+            withContext(Dispatchers.Main) {
+                _criticDetails.value = result
+            }
         }
     }
 

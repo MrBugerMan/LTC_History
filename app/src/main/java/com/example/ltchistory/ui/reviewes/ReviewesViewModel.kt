@@ -6,7 +6,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.data.Repository
 import com.example.data.services.nytimes.models.MovieReviewsAll
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
@@ -18,8 +20,11 @@ class ReviewesViewModel @Inject constructor(private val repository: Repository) 
     val allReviewes = _allReviewes
 
     init {
-        viewModelScope.launch {
-            repository.getReviewesAll().let { _allReviewes.value = it }
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.getReviewesAll()
+            withContext(Dispatchers.Main) {
+                _allReviewes.value = result
+            }
         }
     }
 

@@ -3,6 +3,7 @@ package com.example.ltchistory.ui.critics
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.services.nytimes.models.Byline
 import com.example.data.services.nytimes.models.Docs
@@ -55,9 +56,30 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
     }
 
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: ArrayList<Byline>) {
-        this.criticsList = newList
-        notifyDataSetChanged()
+        val diffCallback = CriticsDiffCallback(criticsList, newList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        criticsList.clear()
+        criticsList.addAll(newList)
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+    private class CriticsDiffCallback(
+        private val oldList: List<Byline>,
+        private val newList: List<Byline>
+    ) : DiffUtil.Callback() {
+
+        override fun getOldListSize(): Int = oldList.size
+
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].person[0].firstname == newList[newItemPosition].person[0].firstname &&
+                    oldList[oldItemPosition].person[0].lastname == newList[newItemPosition].person[0].lastname
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
     }
 }

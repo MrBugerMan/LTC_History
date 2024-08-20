@@ -3,6 +3,7 @@ package com.example.ltchistory.ui.criticdetails
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.data.services.nytimes.models.Docs
@@ -47,10 +48,30 @@ class CriticDetailsAdapter: RecyclerView.Adapter<CriticDetailsAdapter.CriticDeta
         return criticDetailsList.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: ArrayList<Docs>) {
-        this.criticDetailsList = newList
-        notifyDataSetChanged()
+        val diffCallback = CriticDetailsDiffCallback(criticDetailsList, newList)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        criticDetailsList.clear()
+        criticDetailsList.addAll(newList)
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+    private class CriticDetailsDiffCallback(
+        private val oldList: List<Docs>,
+        private val newList: List<Docs>
+    ) : DiffUtil.Callback() {
+
+        override fun getOldListSize(): Int = oldList.size
+
+        override fun getNewListSize(): Int = newList.size
+
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition].Id == newList[newItemPosition].Id
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldList[oldItemPosition] == newList[newItemPosition]
+        }
     }
 
 }
