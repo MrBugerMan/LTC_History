@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.domain.models.Docs
+import com.example.data.services.nytimes.models.Docs
 import com.example.ltchistory.R
 import com.example.ltchistory.databinding.ItemReviewesBinding
 

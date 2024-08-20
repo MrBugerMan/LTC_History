@@ -1,6 +1,6 @@
 package com.example.data.services.nytimes
 
-import com.example.domain.domain.models.MovieReviewsAll
+import com.example.data.services.nytimes.models.MovieReviewsAll
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -55,17 +55,6 @@ object RetrofitModule {
 
 }
 
-/*private val retrofit = Retrofit.Builder()
-    .baseUrl(MovieReviewsAPItools.BASE_URL)
-    .addConverterFactory(GsonConverterFactory.create())
-    .addCallAdapterFactory(CoroutineCallAdapterFactory())
-    .build()*/
-
-
-/*// no hilt
-object RetrofitModule {
-    val retrofitService: MovieReviewsAPI by lazy { retrofit.create(MovieReviewsAPI::class.java) }
-}*/
 
 
 

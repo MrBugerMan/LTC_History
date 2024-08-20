@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.domain.domain.models.Docs
+import com.example.data.services.nytimes.models.Docs
 import com.example.ltchistory.databinding.ItemReviewesBinding
 
 class CriticDetailsAdapter: RecyclerView.Adapter<CriticDetailsAdapter.CriticDetailsViewHolder>() {

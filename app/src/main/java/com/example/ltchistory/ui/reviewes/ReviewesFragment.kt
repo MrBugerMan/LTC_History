@@ -9,7 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.domain.domain.models.Byline
+import com.example.data.services.nytimes.models.Byline
 import com.example.ltchistory.databinding.FragmentReviewesBinding
 import com.example.ltchistory.ui.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,17 +47,6 @@ class ReviewesFragment : Fragment() {
             }
         }
 
-        // попытка пагинации
-        /*binding.recycleViewReviewes.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-                if (!recyclerView.canScrollVertically(1)) {
-                    viewModel.loadNextPage()
-                } else if (!recyclerView.canScrollVertically(-1)) {
-                    viewModel.loadPreviousPage()
-                }
-            }
-        })*/
 
 
     }

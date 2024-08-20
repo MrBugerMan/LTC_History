@@ -1,6 +1,6 @@
-package com.example.domain.domain.models
+package com.example.data.database.models
 
-import com.example.domain.domain.models.Legacy
+import com.example.data.services.nytimes.models.Legacy
 import com.google.gson.annotations.SerializedName
 
 

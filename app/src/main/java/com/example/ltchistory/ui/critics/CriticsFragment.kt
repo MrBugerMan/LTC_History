@@ -14,7 +14,7 @@ import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.domain.domain.models.Byline
+import com.example.data.services.nytimes.models.Byline
 import com.example.ltchistory.R
 import com.example.ltchistory.databinding.FragmentCriticsBinding
 import com.example.ltchistory.databinding.FragmentReviewesBinding

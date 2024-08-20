@@ -1,7 +1,7 @@
-package com.example.domain.domain.models
+package com.example.data.services.nytimes.models
 
-import com.example.domain.domain.models.Docs
-import com.example.domain.domain.models.Meta
+import com.example.data.services.nytimes.models.Docs
+import com.example.data.services.nytimes.models.Meta
 import com.google.gson.annotations.SerializedName
 
 
