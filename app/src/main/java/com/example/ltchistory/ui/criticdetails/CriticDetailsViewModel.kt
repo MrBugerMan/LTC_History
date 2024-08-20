@@ -22,7 +22,8 @@ class CriticDetailsViewModel @Inject constructor(private val repository: Reposit
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.getReviewesByCritic("section_name:\"Movies\" AND type_of_material:\"Review\" AND byline:\"${CriticName.criticName}\"")
+            val result =
+                repository.getReviewesByCritic("section_name:\"Movies\" AND type_of_material:\"Review\" AND byline:\"${CriticName.criticName}\"")
             withContext(Dispatchers.Main) {
                 _criticDetails.value = result
             }

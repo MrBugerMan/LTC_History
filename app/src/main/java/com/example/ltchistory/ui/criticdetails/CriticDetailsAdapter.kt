@@ -9,14 +9,16 @@ import com.bumptech.glide.Glide
 import com.example.data.services.nytimes.models.Docs
 import com.example.ltchistory.databinding.ItemReviewesBinding
 
-class CriticDetailsAdapter: RecyclerView.Adapter<CriticDetailsAdapter.CriticDetailsViewHolder>() {
+class CriticDetailsAdapter : RecyclerView.Adapter<CriticDetailsAdapter.CriticDetailsViewHolder>() {
 
-    private var criticDetailsList: ArrayList<Docs> = arrayListOf()
+    private val criticDetailsList: ArrayList<Docs> = arrayListOf()
 
-    inner class CriticDetailsViewHolder( private val binding: ItemReviewesBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class CriticDetailsViewHolder(private val binding: ItemReviewesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(docs: Docs) {
-            val urlPoster = docs.multimedia.firstOrNull { it.subtype == "verticalTwoByThree735" }?.url
+            val urlPoster =
+                docs.multimedia.firstOrNull { it.subtype == "verticalTwoByThree735" }?.url
             urlPoster?.let {
                 Glide.with(itemView).load("https://static01.nyt.com/$it").into(binding.poster)
             }
@@ -29,7 +31,10 @@ class CriticDetailsAdapter: RecyclerView.Adapter<CriticDetailsAdapter.CriticDeta
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CriticDetailsAdapter.CriticDetailsViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): CriticDetailsAdapter.CriticDetailsViewHolder {
         return CriticDetailsViewHolder(
             ItemReviewesBinding.inflate(
                 LayoutInflater.from(parent.context),
@@ -39,7 +44,10 @@ class CriticDetailsAdapter: RecyclerView.Adapter<CriticDetailsAdapter.CriticDeta
         )
     }
 
-    override fun onBindViewHolder(holder: CriticDetailsAdapter.CriticDetailsViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: CriticDetailsAdapter.CriticDetailsViewHolder,
+        position: Int
+    ) {
         criticDetailsList[position].let { holder.bind(it) }
 
     }

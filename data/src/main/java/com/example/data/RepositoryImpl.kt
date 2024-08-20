@@ -9,7 +9,10 @@ import com.example.data.services.nytimes.models.MovieReviewsAll
 import javax.inject.Inject
 
 
-class RepositoryImpl @Inject constructor(private val daoReviews: DaoReviews, private val movieReviewsAPI: MovieReviewsAPI) : Repository {
+class RepositoryImpl @Inject constructor(
+    private val daoReviews: DaoReviews,
+    private val movieReviewsAPI: MovieReviewsAPI
+) : Repository {
 
 
     override suspend fun getReviewesAll(): MovieReviewsAll {

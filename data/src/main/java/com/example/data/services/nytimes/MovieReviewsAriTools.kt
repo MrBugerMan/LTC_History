@@ -1,6 +1,6 @@
 package com.example.data.services.nytimes
 
-object MovieReviewsAPItools {
+object MovieReviewsAriTools {
 
     const val BASE_URL = "https://api.nytimes.com/"
     const val API_KEY = "GW5a0tJfWOcfQ7k3dpQizIsrmpZ33Bmm"

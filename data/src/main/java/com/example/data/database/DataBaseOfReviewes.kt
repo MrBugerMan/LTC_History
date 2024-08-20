@@ -15,26 +15,10 @@ import javax.inject.Singleton
 
 @Database(entities = [Docs::class], version = 1)
 @TypeConverters(Converters::class)
-abstract class DataBaseOfReviewes: RoomDatabase() {
+abstract class DataBaseOfReviewes : RoomDatabase() {
 
     abstract fun docsDao(): DaoReviews
 
-    /*companion object {
-        @Volatile
-        private var INSTANCE: DataBaseOfReviewes? = null
-
-        fun getDatabase(context: Context): DataBaseOfReviewes {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    DataBaseOfReviewes::class.java,
-                    "docs_database"
-                ).build()
-                INSTANCE = instance
-                instance
-            }
-        }
-    }*/
 }
 
 

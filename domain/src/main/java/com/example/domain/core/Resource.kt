@@ -1,5 +1,6 @@
 package com.example.domain.core
 
+
 typealias SimpleResource = Resource<Unit>
 
 sealed class Resource<T>(val data: T? = null, val message: String? = null) {

@@ -26,8 +26,7 @@ class CriticDetailsFragment : Fragment() {
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentCriticDetailsBinding.inflate(layoutInflater)
         return binding.root

@@ -13,7 +13,7 @@ import com.example.ltchistory.databinding.ItemCriticBinding
 
 class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() {
 
-    private var criticsList: ArrayList<Byline> = arrayListOf()
+    private val criticsList: ArrayList<Byline> = arrayListOf()
     private var onClickListener: OnClickListener? = null
 
     inner class CriticsViewHolder(private val binding: ItemCriticBinding) :
@@ -28,9 +28,7 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CriticsViewHolder {
         return CriticsViewHolder(
             ItemCriticBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
@@ -65,8 +63,7 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
     }
 
     private class CriticsDiffCallback(
-        private val oldList: List<Byline>,
-        private val newList: List<Byline>
+        private val oldList: List<Byline>, private val newList: List<Byline>
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int = oldList.size
@@ -74,8 +71,7 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
         override fun getNewListSize(): Int = newList.size
 
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition].person[0].firstname == newList[newItemPosition].person[0].firstname &&
-                    oldList[oldItemPosition].person[0].lastname == newList[newItemPosition].person[0].lastname
+            return oldList[oldItemPosition].person[0].firstname == newList[newItemPosition].person[0].firstname && oldList[oldItemPosition].person[0].lastname == newList[newItemPosition].person[0].lastname
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

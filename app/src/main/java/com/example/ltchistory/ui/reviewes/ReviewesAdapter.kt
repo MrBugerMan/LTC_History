@@ -15,7 +15,7 @@ import com.example.ltchistory.databinding.ItemReviewesBinding
 
 class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>() {
 
-    private var reviewesList: ArrayList<Docs> = arrayListOf()
+    private val reviewesList: ArrayList<Docs> = arrayListOf()
 
     inner class ReviewesViewHolder(private val binding: ItemReviewesBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -38,9 +38,7 @@ class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewesViewHolder {
         return ReviewesViewHolder(
             ItemReviewesBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+                LayoutInflater.from(parent.context), parent, false
             )
         )
     }
@@ -63,8 +61,7 @@ class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>
     }
 
     private class ReviewesDiffCallback(
-        private val oldList: List<Docs>,
-        private val newList: List<Docs>
+        private val oldList: List<Docs>, private val newList: List<Docs>
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int = oldList.size
