@@ -3,8 +3,8 @@ package com.example.data
 import android.util.Log
 import com.example.data.database.DaoReviews
 import com.example.data.database.models.Docs
-import com.example.data.services.nytimes.MovieReviewsAPI
-import com.example.data.services.nytimes.models.MovieReviewsAll
+import com.example.data.network.nytimes.MovieReviewsAPI
+import com.example.data.network.nytimes.models.MovieReviewsAll
 
 import javax.inject.Inject
 

@@ -5,10 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.data.services.nytimes.models.Byline
-import com.example.data.services.nytimes.models.Docs
-import com.example.ltchistory.databinding.FragmentCriticsBinding
-import com.example.ltchistory.databinding.FragmentReviewesBinding
+import com.example.data.network.nytimes.models.Byline
 import com.example.ltchistory.databinding.ItemCriticBinding
 
 class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() {

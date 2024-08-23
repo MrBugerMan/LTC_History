@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.data.services.CriticName
+import com.example.data.network.CriticName
 import com.example.data.Repository
-import com.example.data.services.nytimes.models.MovieReviewsAll
+import com.example.data.network.nytimes.models.MovieReviewsAll
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

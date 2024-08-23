@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.data.services.nytimes.models.Byline
+import com.example.data.network.nytimes.models.Byline
 import com.example.ltchistory.databinding.FragmentReviewesBinding
 import com.example.ltchistory.ui.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,6 +1,6 @@
-package com.example.data.services.nytimes
+package com.example.data.network.nytimes
 
-import com.example.data.services.nytimes.models.MovieReviewsAll
+import com.example.data.network.nytimes.models.MovieReviewsAll
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides

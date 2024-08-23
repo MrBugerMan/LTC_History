@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 
+    implementation(libs.model.mapper)
+
 
     implementation (project(":domain"))
     implementation (project(":data"))

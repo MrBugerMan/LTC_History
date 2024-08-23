@@ -46,6 +46,8 @@ dependencies {
     kapt(libs.room.compiler)
     implementation(libs.bundles.room)
 
+    implementation(libs.model.mapper)
+
     implementation (project(":domain"))
 
     implementation(libs.androidx.core.ktx)

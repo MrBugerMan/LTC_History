@@ -1,7 +1,5 @@
-package com.example.data.services.nytimes.models
+package com.example.data.network.nytimes.models
 
-import com.example.data.services.nytimes.models.Docs
-import com.example.data.services.nytimes.models.Meta
 import com.google.gson.annotations.SerializedName
 
 

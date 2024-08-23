@@ -1,4 +1,4 @@
-package com.example.data.services.nytimes
+package com.example.data.network.nytimes
 
 object MovieReviewsAriTools {
 

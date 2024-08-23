@@ -1,4 +1,4 @@
-package com.example.data.services
+package com.example.data.network
 
 object CriticName {
     var criticName = "Manohla Dargis"

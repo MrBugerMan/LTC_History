@@ -1,7 +1,5 @@
-package com.example.data.services.nytimes.models
+package com.example.data.network.nytimes.models
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 

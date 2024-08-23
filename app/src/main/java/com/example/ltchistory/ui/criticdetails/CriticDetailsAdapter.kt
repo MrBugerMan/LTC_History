@@ -1,12 +1,11 @@
 package com.example.ltchistory.ui.criticdetails
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.data.services.nytimes.models.Docs
+import com.example.data.network.nytimes.models.Docs
 import com.example.ltchistory.databinding.ItemReviewesBinding
 
 class CriticDetailsAdapter : RecyclerView.Adapter<CriticDetailsAdapter.CriticDetailsViewHolder>() {

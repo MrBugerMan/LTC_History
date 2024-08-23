@@ -1,7 +1,7 @@
 package com.example.data
 
 import com.example.data.database.models.Docs
-import com.example.data.services.nytimes.models.MovieReviewsAll
+import com.example.data.network.nytimes.models.MovieReviewsAll
 
 
 interface Repository {

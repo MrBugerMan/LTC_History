@@ -1,6 +1,6 @@
 package com.example.data.database.models
 
-import com.example.data.services.nytimes.models.Legacy
+import com.example.data.network.nytimes.models.Legacy
 import com.google.gson.annotations.SerializedName
 
 

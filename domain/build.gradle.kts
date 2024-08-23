@@ -48,6 +48,8 @@ dependencies {
     kapt(libs.room.compiler)
     implementation(libs.bundles.room)
 
+    implementation(libs.model.mapper)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
