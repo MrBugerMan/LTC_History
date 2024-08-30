@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.data.network.nytimes.models.Byline
+import com.example.domain.models.BylineDomain
 import com.example.ltchistory.R
 import com.example.ltchistory.databinding.FragmentCriticsBinding
 import com.example.ltchistory.ui.SharedViewModel
@@ -43,7 +44,7 @@ class CriticsFragment : Fragment() {
         }
 
         criticsAdapter.setOnClickListener(object : CriticsAdapter.OnClickListener {
-            override fun onClick(position: Int, model: Byline) {
+            override fun onClick(position: Int, model: BylineDomain) {
                 Log.d("yes click", "position = $position, model = $model")
                 sharedViewModel.setCriticDetails(model)
                 Log.d("data", "data = ${sharedViewModel.criticDetails.value}")

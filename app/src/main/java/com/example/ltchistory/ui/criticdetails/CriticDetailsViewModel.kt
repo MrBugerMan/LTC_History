@@ -5,8 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.network.CriticName
-import com.example.data.Repository
+import com.example.domain.Repository
 import com.example.data.network.nytimes.models.MovieReviewsAll
+import com.example.domain.models.MovieReviewsAllDomain
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,8 +18,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CriticDetailsViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
-    private val _criticDetails = MutableLiveData<MovieReviewsAll>()
-    val criticDetails: LiveData<MovieReviewsAll> get() = _criticDetails
+    private val _criticDetails = MutableLiveData<MovieReviewsAllDomain>()
+    val criticDetails: LiveData<MovieReviewsAllDomain> get() = _criticDetails
 
     init {
         viewModelScope.launch(Dispatchers.IO) {

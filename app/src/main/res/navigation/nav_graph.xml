@@ -35,7 +35,7 @@
         <!---
         <argument
             android:name="byline"
-            app:argType="com.example.ltchistory.Byline"
+            app:argType="com.example.ltchistory.BylineEntity"
             android:defaultValue="@null" /> -->
     </fragment>
 </navigation>

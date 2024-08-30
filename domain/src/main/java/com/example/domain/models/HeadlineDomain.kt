@@ -1,9 +1,9 @@
-package com.example.data.database.models
+package com.example.domain.models
 
 import com.google.gson.annotations.SerializedName
 
 
-data class Headline (
+data class HeadlineDomain (
 
   @SerializedName("main"           ) var main          : String? = null,
   @SerializedName("kicker"         ) var kicker        : String? = null,

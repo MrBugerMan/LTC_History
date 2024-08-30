@@ -1,10 +1,11 @@
-package com.example.data.network.nytimes.models
+package com.example.data.database.models
 
-import com.example.data.database.models.MultimediaEntity
+import com.example.data.network.nytimes.models.Legacy
+import com.example.domain.models.MultimediaDomain
 import com.google.gson.annotations.SerializedName
 
 
-data class Multimedia (
+data class MultimediaEntity (
 
     @SerializedName("rank"      ) var rank     : Int?    = null,
     @SerializedName("subtype"   ) var subtype  : String? = null,
@@ -14,14 +15,14 @@ data class Multimedia (
     @SerializedName("url"       ) var url      : String? = null,
     @SerializedName("height"    ) var height   : Int?    = null,
     @SerializedName("width"     ) var width    : Int?    = null,
-    @SerializedName("legacy"    ) var legacy   : Legacy? = Legacy(),
+    @SerializedName("legacy"    ) var legacy   : LegacyEntity? = LegacyEntity(),
     @SerializedName("subType"   ) var subType  : String? = null,
     @SerializedName("crop_name" ) var cropName : String? = null
 
 )
 
-fun Multimedia.toEntity(): MultimediaEntity {
-    return MultimediaEntity(
+fun MultimediaEntity.toDomain(): MultimediaDomain {
+    return MultimediaDomain(
         rank = this.rank,
         subtype = this.subtype,
         caption = this.caption,
@@ -30,7 +31,7 @@ fun Multimedia.toEntity(): MultimediaEntity {
         url = this.url,
         height = this.height,
         width = this.width,
-        legacy = this.legacy?.toEntity(),
+        legacy = this.legacy?.toDomain(),
         subType = this.subType,
         cropName = this.cropName
     )

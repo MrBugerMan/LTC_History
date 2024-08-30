@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.data.network.nytimes.models.Byline
+import com.example.domain.models.BylineDomain
 import com.example.ltchistory.databinding.FragmentReviewesBinding
 import com.example.ltchistory.ui.SharedViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -42,7 +43,7 @@ class ReviewesFragment : Fragment() {
                 reviewesAdapter.updateList(response.docs)
 
                 val bylines = response.docs.map { it.byline }.filterNotNull()
-                sharedViewModel.setBylines(bylines as ArrayList<Byline>)
+                sharedViewModel.setBylines(bylines as ArrayList<BylineDomain>)
             }
         }
 

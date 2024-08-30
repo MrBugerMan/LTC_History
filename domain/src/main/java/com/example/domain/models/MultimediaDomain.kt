@@ -1,10 +1,9 @@
-package com.example.data.database.models
+package com.example.domain.models
 
-import com.example.data.network.nytimes.models.Legacy
 import com.google.gson.annotations.SerializedName
 
 
-data class Multimedia (
+data class MultimediaDomain (
 
     @SerializedName("rank"      ) var rank     : Int?    = null,
     @SerializedName("subtype"   ) var subtype  : String? = null,
@@ -14,7 +13,7 @@ data class Multimedia (
     @SerializedName("url"       ) var url      : String? = null,
     @SerializedName("height"    ) var height   : Int?    = null,
     @SerializedName("width"     ) var width    : Int?    = null,
-    @SerializedName("legacy"    ) var legacy   : Legacy? = Legacy(),
+    @SerializedName("legacy"    ) var legacy   : LegacyDomain? = LegacyDomain(),
     @SerializedName("subType"   ) var subType  : String? = null,
     @SerializedName("crop_name" ) var cropName : String? = null
 

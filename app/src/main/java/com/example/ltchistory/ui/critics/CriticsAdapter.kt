@@ -6,18 +6,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.data.network.nytimes.models.Byline
+import com.example.domain.models.BylineDomain
 import com.example.ltchistory.databinding.ItemCriticBinding
 
 class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() {
 
-    private val criticsList: ArrayList<Byline> = arrayListOf()
+    private val criticsList: ArrayList<BylineDomain> = arrayListOf()
     private var onClickListener: OnClickListener? = null
 
     inner class CriticsViewHolder(private val binding: ItemCriticBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         @SuppressLint("SetTextI18n")
-        fun bind(byline: Byline) {
+        fun bind(byline: BylineDomain) {
             binding.nameCritic.text = "${byline.person[0].firstname} ${byline.person[0].lastname}"
         }
     }
@@ -43,7 +44,7 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
     }
 
     interface OnClickListener {
-        fun onClick(position: Int, model: Byline)
+        fun onClick(position: Int, model: BylineDomain)
     }
 
     fun setOnClickListener(onClickListener: OnClickListener) {
@@ -51,7 +52,7 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
     }
 
 
-    fun updateList(newList: ArrayList<Byline>) {
+    fun updateList(newList: ArrayList<BylineDomain>) {
         val diffCallback = CriticsDiffCallback(criticsList, newList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         criticsList.clear()
@@ -60,7 +61,7 @@ class CriticsAdapter : RecyclerView.Adapter<CriticsAdapter.CriticsViewHolder>() 
     }
 
     private class CriticsDiffCallback(
-        private val oldList: List<Byline>, private val newList: List<Byline>
+        private val oldList: List<BylineDomain>, private val newList: List<BylineDomain>
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int = oldList.size

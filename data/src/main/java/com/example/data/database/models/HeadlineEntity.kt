@@ -1,10 +1,10 @@
-package com.example.data.network.nytimes.models
+package com.example.data.database.models
 
-import com.example.data.database.models.HeadlineEntity
+import com.example.domain.models.HeadlineDomain
 import com.google.gson.annotations.SerializedName
 
 
-data class Headline (
+data class HeadlineEntity (
 
   @SerializedName("main"           ) var main          : String? = null,
   @SerializedName("kicker"         ) var kicker        : String? = null,
@@ -16,7 +16,7 @@ data class Headline (
 
 )
 
-fun Headline.toEntity() = HeadlineEntity(
+fun HeadlineEntity.toDomain() = HeadlineDomain(
     main = this.main,
     kicker = this.kicker,
     contentKicker = this.contentKicker,

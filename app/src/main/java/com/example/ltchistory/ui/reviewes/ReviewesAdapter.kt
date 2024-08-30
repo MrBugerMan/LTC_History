@@ -6,15 +6,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.data.network.nytimes.models.Docs
+import com.example.domain.models.DocsDomain
 import com.example.ltchistory.databinding.ItemReviewesBinding
 
 class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>() {
 
-    private val reviewesList: ArrayList<Docs> = arrayListOf()
+    private val reviewesList: ArrayList<DocsDomain> = arrayListOf()
 
     inner class ReviewesViewHolder(private val binding: ItemReviewesBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(docs: Docs) {
+        fun bind(docs: DocsDomain) {
             val urlPoster =
                 docs.multimedia.firstOrNull { it.subtype == "verticalTwoByThree735" }?.url
             urlPoster?.let {
@@ -47,7 +48,7 @@ class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>
     }
 
 
-    fun updateList(newReviewesList: ArrayList<Docs>) {
+    fun updateList(newReviewesList: ArrayList<DocsDomain>) {
         val diffCallback = ReviewesDiffCallback(reviewesList, newReviewesList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         reviewesList.clear()
@@ -56,7 +57,7 @@ class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>
     }
 
     private class ReviewesDiffCallback(
-        private val oldList: List<Docs>, private val newList: List<Docs>
+        private val oldList: List<DocsDomain>, private val newList: List<DocsDomain>
     ) : DiffUtil.Callback() {
 
         override fun getOldListSize(): Int = oldList.size
@@ -64,7 +65,7 @@ class ReviewesAdapter : RecyclerView.Adapter<ReviewesAdapter.ReviewesViewHolder>
         override fun getNewListSize(): Int = newList.size
 
         override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-            return oldList[oldItemPosition].Id == newList[newItemPosition].Id
+            return oldList[oldItemPosition]._id == newList[newItemPosition]._id
         }
 
         override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

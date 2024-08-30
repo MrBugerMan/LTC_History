@@ -1,7 +1,7 @@
 package com.example.ltchistory.di
 
 import com.example.data.RepositoryImpl
-import com.example.data.Repository
+import com.example.domain.Repository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

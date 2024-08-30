@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.data.database.models.Docs
+import com.example.data.database.models.DocsEntity
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +13,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-@Database(entities = [Docs::class], version = 1)
+@Database(entities = [DocsEntity::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class DataBaseOfReviewes : RoomDatabase() {
 
@@ -37,6 +37,7 @@ object DatabaseModule {
     }
 
     @Provides
+    @Singleton
     fun provideDocsDao(dataBaseOfReviewes: DataBaseOfReviewes): DaoReviews {
         return dataBaseOfReviewes.docsDao()
     }
